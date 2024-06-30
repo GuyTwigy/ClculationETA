@@ -9,13 +9,20 @@
 /* Begin PBXBuildFile section */
 		9DA1384E2C31CC1F00EAC583 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA1384D2C31CC1F00EAC583 /* AppDelegate.swift */; };
 		9DA138502C31CC1F00EAC583 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA1384F2C31CC1F00EAC583 /* SceneDelegate.swift */; };
-		9DA138522C31CC1F00EAC583 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA138512C31CC1F00EAC583 /* ViewController.swift */; };
+		9DA138522C31CC1F00EAC583 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA138512C31CC1F00EAC583 /* MainVC.swift */; };
 		9DA138552C31CC1F00EAC583 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DA138532C31CC1F00EAC583 /* Main.storyboard */; };
 		9DA138572C31CC2000EAC583 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DA138562C31CC2000EAC583 /* Assets.xcassets */; };
 		9DA1385A2C31CC2000EAC583 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DA138582C31CC2000EAC583 /* LaunchScreen.storyboard */; };
 		9DA138652C31CC2000EAC583 /* ClculationETATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA138642C31CC2000EAC583 /* ClculationETATests.swift */; };
 		9DA1386F2C31CC2000EAC583 /* ClculationETAUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA1386E2C31CC2000EAC583 /* ClculationETAUITests.swift */; };
 		9DA138712C31CC2000EAC583 /* ClculationETAUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA138702C31CC2000EAC583 /* ClculationETAUITestsLaunchTests.swift */; };
+		9DA1387F2C31D78500EAC583 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA1387E2C31D78500EAC583 /* UIViewExtension.swift */; };
+		9DA138812C31D7A400EAC583 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA138802C31D7A400EAC583 /* UIViewControllerExtension.swift */; };
+		9DA138832C31D8DD00EAC583 /* CustomButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DA138822C31D8DD00EAC583 /* CustomButton.xib */; };
+		9DA138852C31D8E500EAC583 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA138842C31D8E500EAC583 /* CustomButton.swift */; };
+		9DA138882C31DD9100EAC583 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA138862C31DD9100EAC583 /* LocationCell.swift */; };
+		9DA138892C31DD9100EAC583 /* LocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DA138872C31DD9100EAC583 /* LocationCell.xib */; };
+		9DA1388B2C31DDBF00EAC583 /* MainVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA1388A2C31DDBF00EAC583 /* MainVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +46,7 @@
 		9DA1384A2C31CC1F00EAC583 /* ClculationETA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClculationETA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DA1384D2C31CC1F00EAC583 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9DA1384F2C31CC1F00EAC583 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9DA138512C31CC1F00EAC583 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9DA138512C31CC1F00EAC583 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		9DA138542C31CC1F00EAC583 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9DA138562C31CC2000EAC583 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9DA138592C31CC2000EAC583 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +56,13 @@
 		9DA1386A2C31CC2000EAC583 /* ClculationETAUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClculationETAUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DA1386E2C31CC2000EAC583 /* ClculationETAUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClculationETAUITests.swift; sourceTree = "<group>"; };
 		9DA138702C31CC2000EAC583 /* ClculationETAUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClculationETAUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9DA1387E2C31D78500EAC583 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		9DA138802C31D7A400EAC583 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		9DA138822C31D8DD00EAC583 /* CustomButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomButton.xib; sourceTree = "<group>"; };
+		9DA138842C31D8E500EAC583 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		9DA138862C31DD9100EAC583 /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
+		9DA138872C31DD9100EAC583 /* LocationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationCell.xib; sourceTree = "<group>"; };
+		9DA1388A2C31DDBF00EAC583 /* MainVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +115,12 @@
 			children = (
 				9DA1384D2C31CC1F00EAC583 /* AppDelegate.swift */,
 				9DA1384F2C31CC1F00EAC583 /* SceneDelegate.swift */,
-				9DA138512C31CC1F00EAC583 /* ViewController.swift */,
-				9DA138532C31CC1F00EAC583 /* Main.storyboard */,
 				9DA138562C31CC2000EAC583 /* Assets.xcassets */,
 				9DA138582C31CC2000EAC583 /* LaunchScreen.storyboard */,
+				9DA1387D2C31D76C00EAC583 /* Extensions */,
+				9DA1388E2C31DF3E00EAC583 /* MainVC */,
+				9DA1388C2C31DF1500EAC583 /* Cells */,
+				9DA1388D2C31DF2900EAC583 /* CustomButton */,
 				9DA1385B2C31CC2000EAC583 /* Info.plist */,
 			);
 			path = ClculationETA;
@@ -125,6 +141,43 @@
 				9DA138702C31CC2000EAC583 /* ClculationETAUITestsLaunchTests.swift */,
 			);
 			path = ClculationETAUITests;
+			sourceTree = "<group>";
+		};
+		9DA1387D2C31D76C00EAC583 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9DA1387E2C31D78500EAC583 /* UIViewExtension.swift */,
+				9DA138802C31D7A400EAC583 /* UIViewControllerExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9DA1388C2C31DF1500EAC583 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				9DA138862C31DD9100EAC583 /* LocationCell.swift */,
+				9DA138872C31DD9100EAC583 /* LocationCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		9DA1388D2C31DF2900EAC583 /* CustomButton */ = {
+			isa = PBXGroup;
+			children = (
+				9DA138822C31D8DD00EAC583 /* CustomButton.xib */,
+				9DA138842C31D8E500EAC583 /* CustomButton.swift */,
+			);
+			path = CustomButton;
+			sourceTree = "<group>";
+		};
+		9DA1388E2C31DF3E00EAC583 /* MainVC */ = {
+			isa = PBXGroup;
+			children = (
+				9DA1388A2C31DDBF00EAC583 /* MainVM.swift */,
+				9DA138512C31CC1F00EAC583 /* MainVC.swift */,
+				9DA138532C31CC1F00EAC583 /* Main.storyboard */,
+			);
+			path = MainVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,6 +284,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DA138892C31DD9100EAC583 /* LocationCell.xib in Resources */,
+				9DA138832C31D8DD00EAC583 /* CustomButton.xib in Resources */,
 				9DA1385A2C31CC2000EAC583 /* LaunchScreen.storyboard in Resources */,
 				9DA138572C31CC2000EAC583 /* Assets.xcassets in Resources */,
 				9DA138552C31CC1F00EAC583 /* Main.storyboard in Resources */,
@@ -258,9 +313,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DA138522C31CC1F00EAC583 /* ViewController.swift in Sources */,
+				9DA138522C31CC1F00EAC583 /* MainVC.swift in Sources */,
 				9DA1384E2C31CC1F00EAC583 /* AppDelegate.swift in Sources */,
+				9DA138852C31D8E500EAC583 /* CustomButton.swift in Sources */,
+				9DA138812C31D7A400EAC583 /* UIViewControllerExtension.swift in Sources */,
+				9DA138882C31DD9100EAC583 /* LocationCell.swift in Sources */,
+				9DA1387F2C31D78500EAC583 /* UIViewExtension.swift in Sources */,
 				9DA138502C31CC1F00EAC583 /* SceneDelegate.swift in Sources */,
+				9DA1388B2C31DDBF00EAC583 /* MainVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,6 +510,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -478,6 +539,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
