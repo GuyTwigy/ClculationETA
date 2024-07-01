@@ -77,3 +77,12 @@ extension UIView {
     }
 }
 
+extension UIView {
+    func loadNib() -> UIView {
+        let bundle = Bundle(for: type(of: self))
+        let nibName = type(of: self).description().components(separatedBy: ".").last!
+        let nib = UINib(nibName: nibName, bundle: bundle)
+        print("\(nibName)")
+        return nib.instantiate(withOwner: self, options: nil).first as! UIView
+    }
+}

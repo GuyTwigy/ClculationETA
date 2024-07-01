@@ -20,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pt8-02-I3A">
-                    <rect key="frame" x="10" y="10" width="373" height="42"/>
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="42"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="Add Location"/>
                     <userDefinedRuntimeAttributes>
@@ -29,6 +29,9 @@
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                             <color key="value" systemColor="tintColor"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="10"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
@@ -39,10 +42,10 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="pt8-02-I3A" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="Fm0-lM-HAP"/>
-                <constraint firstItem="pt8-02-I3A" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" constant="10" id="dTT-1q-vvo"/>
-                <constraint firstItem="pt8-02-I3A" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="daJ-CV-JeG"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="pt8-02-I3A" secondAttribute="trailing" constant="10" id="p4M-LD-rNo"/>
+                <constraint firstItem="pt8-02-I3A" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Fm0-lM-HAP"/>
+                <constraint firstItem="pt8-02-I3A" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="dTT-1q-vvo"/>
+                <constraint firstItem="pt8-02-I3A" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="daJ-CV-JeG"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="pt8-02-I3A" secondAttribute="trailing" id="p4M-LD-rNo"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="136.64122137404578" y="293.66197183098592"/>

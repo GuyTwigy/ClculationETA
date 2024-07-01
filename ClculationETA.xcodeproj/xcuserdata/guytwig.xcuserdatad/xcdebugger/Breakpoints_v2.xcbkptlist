@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "11D068F6-8654-4473-9B7E-A59B118F35F4"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DD28E444-68A3-4552-AAC8-8ED3A2047486"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ClculationETA/MainVC/MainVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "distanceBetweenAddresses(addressesDistance:error:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FD92D3BD-1EB8-4885-B39F-643C9BA23CDB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ClculationETA/MainVC/MainVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "distanceBetweenAddresses(addressesDistance:error:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E4D290A1-495E-4B92-A0CE-DF5CA0E937D6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ClculationETA/MainVC/MainVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "addTapped(address:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E4D290A1-495E-4B92-A0CE-DF5CA0E937D6 - 208dd008b7f53afc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async throws -&gt; Swift.Optional&lt;()&gt; in ClculationETA.MainVC.addTapped(address: Swift.String) -&gt; ()"
+                  moduleName = "ClculationETA"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guytwig/ClculationETA/ClculationETA/MainVC/MainVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
+                  offsetFromSymbolStart = "72">
+               </Location>
+               <Location
+                  uuid = "E4D290A1-495E-4B92-A0CE-DF5CA0E937D6 - 4ba5cf5c6c63bc8f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for closure #1 @Sendable () async throws -&gt; Swift.Optional&lt;()&gt; in ClculationETA.MainVC.addTapped(address: Swift.String) -&gt; ()"
+                  moduleName = "ClculationETA"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guytwig/ClculationETA/ClculationETA/MainVC/MainVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
+                  offsetFromSymbolStart = "36">
+               </Location>
+               <Location
+                  uuid = "E4D290A1-495E-4B92-A0CE-DF5CA0E937D6 - a9f0e462850146fa"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async throws -&gt; Swift.Optional&lt;()&gt; in ClculationETA.MainVC.addTapped(address: Swift.String) -&gt; ()"
+                  moduleName = "ClculationETA"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guytwig/ClculationETA/ClculationETA/MainVC/MainVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "E4D290A1-495E-4B92-A0CE-DF5CA0E937D6 - 6d457ea98c476cf5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for closure #1 @Sendable () async throws -&gt; Swift.Optional&lt;()&gt; in ClculationETA.MainVC.addTapped(address: Swift.String) -&gt; ()"
+                  moduleName = "ClculationETA"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guytwig/ClculationETA/ClculationETA/MainVC/MainVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  uuid = "E4D290A1-495E-4B92-A0CE-DF5CA0E937D6 - 4ba5cf5c6c63bc8f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for closure #1 @Sendable () async throws -&gt; Swift.Optional&lt;()&gt; in ClculationETA.MainVC.addTapped(address: Swift.String) -&gt; ()"
+                  moduleName = "ClculationETA"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guytwig/ClculationETA/ClculationETA/MainVC/MainVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "E4D290A1-495E-4B92-A0CE-DF5CA0E937D6 - e65e41f869ada2af"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async -&gt; Swift.Optional&lt;()&gt; in ClculationETA.MainVC.addTapped(address: Swift.String) -&gt; ()"
+                  moduleName = "ClculationETA"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guytwig/ClculationETA/ClculationETA/MainVC/MainVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
+                  offsetFromSymbolStart = "72">
+               </Location>
+               <Location
+                  uuid = "E4D290A1-495E-4B92-A0CE-DF5CA0E937D6 - f94766002fc53b98"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for closure #1 @Sendable () async -&gt; Swift.Optional&lt;()&gt; in ClculationETA.MainVC.addTapped(address: Swift.String) -&gt; ()"
+                  moduleName = "ClculationETA"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guytwig/ClculationETA/ClculationETA/MainVC/MainVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "E4D290A1-495E-4B92-A0CE-DF5CA0E937D6 - 30e838ed8b8466a9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; Swift.Optional&lt;()&gt; in ClculationETA.MainVC.addTapped(address: Swift.String) -&gt; ()"
+                  moduleName = "ClculationETA"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guytwig/ClculationETA/ClculationETA/MainVC/MainVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "52C3E3F7-965F-40AB-970F-49D179D29FE9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ClculationETA/MainVC/MainVM.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "getDistance(addressesArr:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "52C3E3F7-965F-40AB-970F-49D179D29FE9 - f9b2b22a84261274"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Array&lt;ClculationETA.AddressDistance&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in ClculationETA.MainVM.getDistance(addressesArr: Swift.Array&lt;ClculationETA.AddressDistance&gt;) async -&gt; ()"
+                  moduleName = "ClculationETA"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guytwig/ClculationETA/ClculationETA/MainVC/MainVM.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "180">
+               </Location>
+               <Location
+                  uuid = "52C3E3F7-965F-40AB-970F-49D179D29FE9 - 47ea4d7d004b79dc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for ClculationETA.MainVM.getDistance(addressesArr: Swift.Array&lt;ClculationETA.AddressDistance&gt;) async throws -&gt; ()"
+                  moduleName = "ClculationETA"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guytwig/ClculationETA/ClculationETA/MainVC/MainVM.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "84">
+               </Location>
+               <Location
+                  uuid = "52C3E3F7-965F-40AB-970F-49D179D29FE9 - 36fec5dac449add1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for ClculationETA.MainVM.getDistance(addressesArr: Swift.Array&lt;ClculationETA.AddressDistance&gt;) async throws -&gt; ()"
+                  moduleName = "ClculationETA"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guytwig/ClculationETA/ClculationETA/MainVC/MainVM.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "52C3E3F7-965F-40AB-970F-49D179D29FE9 - 94be8c73efe0bdde"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for ClculationETA.MainVM.getDistance(addressesArr: Swift.Array&lt;ClculationETA.AddressDistance&gt;) async throws -&gt; ()"
+                  moduleName = "ClculationETA"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guytwig/ClculationETA/ClculationETA/MainVC/MainVM.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "56">
+               </Location>
+               <Location
+                  uuid = "52C3E3F7-965F-40AB-970F-49D179D29FE9 - ca18acf578b51fd9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for ClculationETA.MainVM.getDistance(addressesArr: Swift.Array&lt;ClculationETA.AddressDistance&gt;) async throws -&gt; ()"
+                  moduleName = "ClculationETA"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guytwig/ClculationETA/ClculationETA/MainVC/MainVM.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "68">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1C1702D3-24CD-4202-A438-DE88A6C7BFBD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ClculationETA/MainVC/MainVM.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "getDistance(addressesArr:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "1C1702D3-24CD-4202-A438-DE88A6C7BFBD - f9b2b22a84261255"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Array&lt;ClculationETA.AddressDistance&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in ClculationETA.MainVM.getDistance(addressesArr: Swift.Array&lt;ClculationETA.AddressDistance&gt;) async -&gt; ()"
+                  moduleName = "ClculationETA"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guytwig/ClculationETA/ClculationETA/MainVC/MainVM.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "208">
+               </Location>
+               <Location
+                  uuid = "1C1702D3-24CD-4202-A438-DE88A6C7BFBD - 94be8c73efe0bdff"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for ClculationETA.MainVM.getDistance(addressesArr: Swift.Array&lt;ClculationETA.AddressDistance&gt;) async throws -&gt; ()"
+                  moduleName = "ClculationETA"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guytwig/ClculationETA/ClculationETA/MainVC/MainVM.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "112">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A0A99522-E0C7-45BE-95A0-53CEFD8D1DE1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ClculationETA/MainVC/MainVM.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "getDistance(addressesArr:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

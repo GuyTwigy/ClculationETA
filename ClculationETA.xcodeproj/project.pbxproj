@@ -23,6 +23,16 @@
 		9DA138882C31DD9100EAC583 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA138862C31DD9100EAC583 /* LocationCell.swift */; };
 		9DA138892C31DD9100EAC583 /* LocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DA138872C31DD9100EAC583 /* LocationCell.xib */; };
 		9DA1388B2C31DDBF00EAC583 /* MainVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA1388A2C31DDBF00EAC583 /* MainVM.swift */; };
+		9DA138912C31E03800EAC583 /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA138902C31E03800EAC583 /* LocationData.swift */; };
+		9DA138942C31E4A500EAC583 /* CustomNibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA138932C31E4A500EAC583 /* CustomNibView.swift */; };
+		9DA138972C31E6F900EAC583 /* AddLocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA138952C31E6F900EAC583 /* AddLocationCell.swift */; };
+		9DA138982C31E6F900EAC583 /* AddLocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DA138962C31E6F900EAC583 /* AddLocationCell.xib */; };
+		9DA1389B2C31F57300EAC583 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA1389A2C31F57300EAC583 /* AppConstants.swift */; };
+		9DA1389E2C31F75900EAC583 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA1389D2C31F75900EAC583 /* NetworkManager.swift */; };
+		9DA138A02C31F7BC00EAC583 /* CLLocationDegreesExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA1389F2C31F7BC00EAC583 /* CLLocationDegreesExtension.swift */; };
+		9DA138A22C31F8A500EAC583 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA138A12C31F8A500EAC583 /* URLSessionProtocol.swift */; };
+		9DA138A42C31F99100EAC583 /* LocationCoordinateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA138A32C31F99100EAC583 /* LocationCoordinateProtocol.swift */; };
+		9DA138A62C32987D00EAC583 /* AddressDistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA138A52C32987D00EAC583 /* AddressDistance.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +73,16 @@
 		9DA138862C31DD9100EAC583 /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		9DA138872C31DD9100EAC583 /* LocationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationCell.xib; sourceTree = "<group>"; };
 		9DA1388A2C31DDBF00EAC583 /* MainVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVM.swift; sourceTree = "<group>"; };
+		9DA138902C31E03800EAC583 /* LocationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationData.swift; sourceTree = "<group>"; };
+		9DA138932C31E4A500EAC583 /* CustomNibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNibView.swift; sourceTree = "<group>"; };
+		9DA138952C31E6F900EAC583 /* AddLocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationCell.swift; sourceTree = "<group>"; };
+		9DA138962C31E6F900EAC583 /* AddLocationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddLocationCell.xib; sourceTree = "<group>"; };
+		9DA1389A2C31F57300EAC583 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		9DA1389D2C31F75900EAC583 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		9DA1389F2C31F7BC00EAC583 /* CLLocationDegreesExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationDegreesExtension.swift; sourceTree = "<group>"; };
+		9DA138A12C31F8A500EAC583 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
+		9DA138A32C31F99100EAC583 /* LocationCoordinateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCoordinateProtocol.swift; sourceTree = "<group>"; };
+		9DA138A52C32987D00EAC583 /* AddressDistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressDistance.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,8 +138,12 @@
 				9DA138562C31CC2000EAC583 /* Assets.xcassets */,
 				9DA138582C31CC2000EAC583 /* LaunchScreen.storyboard */,
 				9DA1387D2C31D76C00EAC583 /* Extensions */,
+				9DA138992C31F55700EAC583 /* AppConstants */,
+				9DA1389C2C31F74B00EAC583 /* NetworkManager */,
+				9DA1388F2C31E02700EAC583 /* Models */,
 				9DA1388E2C31DF3E00EAC583 /* MainVC */,
 				9DA1388C2C31DF1500EAC583 /* Cells */,
+				9DA138922C31E48700EAC583 /* CustomNibView */,
 				9DA1388D2C31DF2900EAC583 /* CustomButton */,
 				9DA1385B2C31CC2000EAC583 /* Info.plist */,
 			);
@@ -148,6 +172,7 @@
 			children = (
 				9DA1387E2C31D78500EAC583 /* UIViewExtension.swift */,
 				9DA138802C31D7A400EAC583 /* UIViewControllerExtension.swift */,
+				9DA1389F2C31F7BC00EAC583 /* CLLocationDegreesExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -155,6 +180,8 @@
 		9DA1388C2C31DF1500EAC583 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				9DA138952C31E6F900EAC583 /* AddLocationCell.swift */,
+				9DA138962C31E6F900EAC583 /* AddLocationCell.xib */,
 				9DA138862C31DD9100EAC583 /* LocationCell.swift */,
 				9DA138872C31DD9100EAC583 /* LocationCell.xib */,
 			);
@@ -178,6 +205,41 @@
 				9DA138532C31CC1F00EAC583 /* Main.storyboard */,
 			);
 			path = MainVC;
+			sourceTree = "<group>";
+		};
+		9DA1388F2C31E02700EAC583 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9DA138902C31E03800EAC583 /* LocationData.swift */,
+				9DA138A52C32987D00EAC583 /* AddressDistance.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9DA138922C31E48700EAC583 /* CustomNibView */ = {
+			isa = PBXGroup;
+			children = (
+				9DA138932C31E4A500EAC583 /* CustomNibView.swift */,
+			);
+			path = CustomNibView;
+			sourceTree = "<group>";
+		};
+		9DA138992C31F55700EAC583 /* AppConstants */ = {
+			isa = PBXGroup;
+			children = (
+				9DA1389A2C31F57300EAC583 /* AppConstants.swift */,
+			);
+			path = AppConstants;
+			sourceTree = "<group>";
+		};
+		9DA1389C2C31F74B00EAC583 /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				9DA1389D2C31F75900EAC583 /* NetworkManager.swift */,
+				9DA138A12C31F8A500EAC583 /* URLSessionProtocol.swift */,
+				9DA138A32C31F99100EAC583 /* LocationCoordinateProtocol.swift */,
+			);
+			path = NetworkManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,6 +348,7 @@
 			files = (
 				9DA138892C31DD9100EAC583 /* LocationCell.xib in Resources */,
 				9DA138832C31D8DD00EAC583 /* CustomButton.xib in Resources */,
+				9DA138982C31E6F900EAC583 /* AddLocationCell.xib in Resources */,
 				9DA1385A2C31CC2000EAC583 /* LaunchScreen.storyboard in Resources */,
 				9DA138572C31CC2000EAC583 /* Assets.xcassets in Resources */,
 				9DA138552C31CC1F00EAC583 /* Main.storyboard in Resources */,
@@ -313,11 +376,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DA138A22C31F8A500EAC583 /* URLSessionProtocol.swift in Sources */,
+				9DA138912C31E03800EAC583 /* LocationData.swift in Sources */,
 				9DA138522C31CC1F00EAC583 /* MainVC.swift in Sources */,
 				9DA1384E2C31CC1F00EAC583 /* AppDelegate.swift in Sources */,
+				9DA1389E2C31F75900EAC583 /* NetworkManager.swift in Sources */,
 				9DA138852C31D8E500EAC583 /* CustomButton.swift in Sources */,
 				9DA138812C31D7A400EAC583 /* UIViewControllerExtension.swift in Sources */,
+				9DA138942C31E4A500EAC583 /* CustomNibView.swift in Sources */,
+				9DA138A62C32987D00EAC583 /* AddressDistance.swift in Sources */,
 				9DA138882C31DD9100EAC583 /* LocationCell.swift in Sources */,
+				9DA1389B2C31F57300EAC583 /* AppConstants.swift in Sources */,
+				9DA138972C31E6F900EAC583 /* AddLocationCell.swift in Sources */,
+				9DA138A02C31F7BC00EAC583 /* CLLocationDegreesExtension.swift in Sources */,
+				9DA138A42C31F99100EAC583 /* LocationCoordinateProtocol.swift in Sources */,
 				9DA1387F2C31D78500EAC583 /* UIViewExtension.swift in Sources */,
 				9DA138502C31CC1F00EAC583 /* SceneDelegate.swift in Sources */,
 				9DA1388B2C31DDBF00EAC583 /* MainVM.swift in Sources */,
