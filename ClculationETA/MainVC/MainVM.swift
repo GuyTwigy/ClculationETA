@@ -15,7 +15,7 @@ protocol MainVMDelegate: AnyObject {
 class MainVM {
     
     weak var delegate: MainVMDelegate?
-    var networkManager = NetworkManager()
+    private var networkManager = NetworkManager()
     
     func getDistance(addressesArr: [AddressDistance]) async throws {
         do {
@@ -33,13 +33,15 @@ class MainVM {
             results.append(AddressDistance(address: firstAddress.address, distanceETA: "", arriveETA: "9:00", isStart: true, coordinate: firstAddress.coordinate))
         }
         
-        for i in 0..<addressesArr.count - 1 {
-            let addressOne = addressesArr[i]
-            let addressTwo = addressesArr[i + 1]
-            let eta = calculateETABetweenTwoAddresses(addressOneCoordinate: addressOne.coordinate ?? CLLocationCoordinate2D(latitude: 0, longitude: 0), addressaddressTwoCoordinateTwo: addressTwo.coordinate ?? CLLocationCoordinate2D(latitude: 0, longitude: 0))
-            let conversToTime = Utils.addSecondsToTime(nowTime: results.last?.arriveETA ?? "9:00", seconds: eta.secondsDistance ?? 0)
-            let addressDistance = AddressDistance(address: addressTwo.address, distanceETA: "\(eta.secondsDistance ?? 0)", arriveETA: conversToTime, isStart: false, coordinate: eta.coord2)
-            results.append(addressDistance)
+        if addressesArr.count > 1 {
+            for i in 0..<addressesArr.count - 1 {
+                let addressOne = addressesArr[i]
+                let addressTwo = addressesArr[i + 1]
+                let eta = calculateETABetweenTwoAddresses(addressOneCoordinate: addressOne.coordinate ?? CLLocationCoordinate2D(latitude: 0, longitude: 0), addressaddressTwoCoordinateTwo: addressTwo.coordinate ?? CLLocationCoordinate2D(latitude: 0, longitude: 0))
+                let conversToTime = Utils.addSecondsToTime(nowTime: results.last?.arriveETA ?? "9:00", seconds: eta.secondsDistance ?? 0)
+                let addressDistance = AddressDistance(address: addressTwo.address, distanceETA: "\(eta.secondsDistance ?? 0)", arriveETA: conversToTime, isStart: false, coordinate: eta.coord2)
+                results.append(addressDistance)
+            }
         }
         
         return results

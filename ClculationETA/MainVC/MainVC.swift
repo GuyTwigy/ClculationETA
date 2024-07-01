@@ -10,8 +10,9 @@ import CoreLocation
 
 class MainVC: UIViewController {
     
-    var vm: MainVM?
-    var addressesDistance: [AddressDistance] = []
+    private var vm: MainVM?
+    private var addressesDistance: [AddressDistance] = []
+    private var pinnedIndexPaths: [IndexPath] = []
     
     @IBOutlet weak var loader: UIActivityIndicatorView!
     @IBOutlet weak var addBtn: CustomButton! {
@@ -39,9 +40,9 @@ class MainVC: UIViewController {
     func setupTableView() {
         tblLocations.delegate = self
         tblLocations.dataSource = self
-//        tblLocations.dragDelegate = self
-//        tblLocations.dropDelegate = self
-//        tblLocations.dragInteractionEnabled = true
+        tblLocations.dragDelegate = self
+        tblLocations.dropDelegate = self
+        tblLocations.dragInteractionEnabled = true
         tblLocations.register(UINib(nibName: "LocationCell", bundle: nil), forCellReuseIdentifier: "LocationCell")
         tblLocations.register(UINib(nibName: "AddLocationCell", bundle: nil), forCellReuseIdentifier: "AddLocationCell")
         tblLocations.rowHeight = UITableView.automaticDimension
@@ -70,7 +71,7 @@ class MainVC: UIViewController {
     }
 }
 
-extension MainVC: UITableViewDataSource, UITableViewDelegate {
+extension MainVC: UITableViewDataSource, UITableViewDelegate, UITableViewDragDelegate, UITableViewDropDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         addressesDistance.count
     }
@@ -86,7 +87,7 @@ extension MainVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if !addressesDistance.isEmpty {
             for index in addressesDistance.indices {
-                if addressesDistance[index].coordinate?.latitude != addressesDistance[indexPath.row].coordinate?.latitude {
+                if addressesDistance[index].coordinate?.latitude != addressesDistance[indexPath.row].coordinate?.latitude && addressesDistance[index].arriveETA != addressesDistance[indexPath.row].arriveETA {
                     addressesDistance[index].infoOpen = false
                 }
             }
@@ -107,6 +108,62 @@ extension MainVC: UITableViewDataSource, UITableViewDelegate {
             addressesDistance = vm?.positionChanged(addressesArr: addressesDistance) ?? []
             tableView.reloadData()
             loader.stopAnimating()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return !pinnedIndexPaths.contains(indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+        let addressDistance = addressesDistance[indexPath.row]
+        let itemProvider = NSItemProvider(object: "\(addressDistance.address ?? "") - \(addressDistance.arriveETA ?? "9:00") ETA" as NSString)
+        let dragItem = UIDragItem(itemProvider: itemProvider)
+        dragItem.localObject = addressDistance
+        return [dragItem]
+    }
+        
+    func tableView(_ tableView: UITableView, performDropWith coordinator: UITableViewDropCoordinator) {
+        guard let destinationIndexPath = coordinator.destinationIndexPath else { return }
+        
+        if coordinator.proposal.operation == .move {
+            var destinationIndexPath = destinationIndexPath
+            if let item = coordinator.items.first,
+               let sourceIndexPath = item.sourceIndexPath {
+                if pinnedIndexPaths.contains(destinationIndexPath) {
+                    destinationIndexPath.row += 1
+                }
+                loader.startAnimating()
+                tableView.performBatchUpdates({
+                    addressesDistance.remove(at: sourceIndexPath.row)
+                    addressesDistance.insert(item.dragItem.localObject as! AddressDistance, at: destinationIndexPath.row)
+                    tableView.moveRow(at: sourceIndexPath, to: destinationIndexPath)
+                    addressesDistance = vm?.positionChanged(addressesArr: addressesDistance) ?? []
+                    tableView.reloadData()
+                    loader.stopAnimating()
+                }, completion: nil)
+                coordinator.drop(item.dragItem, toRowAt: destinationIndexPath)
+            }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, canHandle session: UIDropSession) -> Bool {
+        return session.localDragSession != nil
+    }
+    
+    func tableView(_ tableView: UITableView, dropSessionDidUpdate session: UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UITableViewDropProposal {
+        return UITableViewDropProposal(operation: .move, intent: .insertAtDestinationIndexPath)
+    }
+        
+    func pinCell(at indexPath: IndexPath) {
+        if !pinnedIndexPaths.contains(indexPath) {
+            pinnedIndexPaths.append(indexPath)
+        }
+    }
+    
+    func unpinCell(at indexPath: IndexPath) {
+        if let index = pinnedIndexPaths.firstIndex(of: indexPath) {
+            pinnedIndexPaths.remove(at: index)
         }
     }
 }
