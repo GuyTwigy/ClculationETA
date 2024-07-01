@@ -90,8 +90,8 @@ extension MainVC: UITableViewDataSource, UITableViewDelegate, UITableViewDragDel
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LocationCell", for: indexPath) as! LocationCell
-        var formerIndex = (indexPath.row - 1) < 0 ? 0 : indexPath.row - 1
-        cell.setupCellContent(addressDistanc: addressesDistance[indexPath.row], formerAdress: addressesDistance[formerIndex])
+        let formerIndex = (indexPath.row - 1) < 0 ? 0 : indexPath.row - 1
+        cell.setupCellContent(addressDistanc: addressesDistance[indexPath.row], formerAddress: addressesDistance[formerIndex])
         cell.selectionStyle = .none
         return cell
     }
@@ -99,7 +99,8 @@ extension MainVC: UITableViewDataSource, UITableViewDelegate, UITableViewDragDel
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if !addressesDistance.isEmpty {
             for index in addressesDistance.indices {
-                if addressesDistance[index].coordinate?.latitude != addressesDistance[indexPath.row].coordinate?.latitude && addressesDistance[index].arriveETA != addressesDistance[indexPath.row].arriveETA {
+                if addressesDistance[index].coordinate?.latitude != addressesDistance[indexPath.row].coordinate?.latitude &&
+                    addressesDistance[index].arriveETA != addressesDistance[indexPath.row].arriveETA {
                     addressesDistance[index].infoOpen = false
                 }
             }
@@ -136,9 +137,16 @@ extension MainVC: UITableViewDataSource, UITableViewDelegate, UITableViewDragDel
     }
         
     func tableView(_ tableView: UITableView, performDropWith coordinator: UITableViewDropCoordinator) {
-        guard let destinationIndexPath = coordinator.destinationIndexPath else { return }
+        guard let destinationIndexPath = coordinator.destinationIndexPath else { 
+            return
+        }
         
         if coordinator.proposal.operation == .move {
+            if shouldCancelDrop(from: coordinator.items.first?.sourceIndexPath, to: destinationIndexPath) {
+                showAlert(title: "Something went wrong, Please try again later", message: "")
+                return
+            }
+            
             var destinationIndexPath = destinationIndexPath
             if let item = coordinator.items.first,
                let sourceIndexPath = item.sourceIndexPath {
@@ -166,8 +174,33 @@ extension MainVC: UITableViewDataSource, UITableViewDelegate, UITableViewDragDel
     func tableView(_ tableView: UITableView, dropSessionDidUpdate session: UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UITableViewDropProposal {
         return UITableViewDropProposal(operation: .move, intent: .insertAtDestinationIndexPath)
     }
+    
+    private func shouldCancelDrop(from sourceIndexPath: IndexPath?, to destinationIndexPath: IndexPath) -> Bool {
+        guard let sourceIndexPath = sourceIndexPath else { 
+            return false
+        }
+
+        if addressesDistance[destinationIndexPath.row].infoOpen {
+            return true
+        }
         
+        if destinationIndexPath.row > 0 && addressesDistance[destinationIndexPath.row - 1].infoOpen {
+            return true
+        }
+        
+        if destinationIndexPath.row < addressesDistance.count - 1 && addressesDistance[destinationIndexPath.row + 1].infoOpen {
+            return true
+        }
+        
+        return false
+    }
+    
     func pinCell(at indexPath: IndexPath) {
+        if addressesDistance[indexPath.row].infoOpen {
+            showAlert(title: "Something went wrong, Please try again later", message: "")
+            return
+        }
+        
         if !pinnedIndexPaths.contains(indexPath) {
             pinnedIndexPaths.append(indexPath)
         }
@@ -177,6 +210,12 @@ extension MainVC: UITableViewDataSource, UITableViewDelegate, UITableViewDragDel
         if let index = pinnedIndexPaths.firstIndex(of: indexPath) {
             pinnedIndexPaths.remove(at: index)
         }
+    }
+    
+    private func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
 }
 
