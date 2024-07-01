@@ -10,7 +10,7 @@ import CoreLocation
 
 protocol LocationCoordinateProtocol {
     func calculateETABetweenAdressesArray(addressesArr: [AddressDistance]) async throws -> [AddressDistance]
-    func calculateETABetweenTwoAddresses(addressOne: String, addressTwo: String) async throws -> Int?
+    func calculateETABetweenTwoAddresses(addressOne: String, addressTwo: String) async throws -> (secondsDistance: Int?, coord1: CLLocationCoordinate2D, coord2: CLLocationCoordinate2D)
     func getLocationSingleAdress(address: String) async throws -> CLLocationCoordinate2D
     func calculateAerialDistance(coord1: CLLocationCoordinate2D, coord2: CLLocationCoordinate2D) -> Double
 }
@@ -20,7 +20,12 @@ extension NetworkManager: LocationCoordinateProtocol  {
         var results: [AddressDistance] = []
         
         if let firstAddress = addressesArr.first {
-            results.append(AddressDistance(address: firstAddress.address, ETA: "9:00", isStart: true))
+            do {
+                let coord = try await getLocationSingleAdress(address: firstAddress.address ?? "")
+                results.append(AddressDistance(address: firstAddress.address, distanceETA: "", arriveETA: "9:00", isStart: true, coordinate: coord))
+            } catch {
+                throw error
+            }
         }
         
         for i in 0..<addressesArr.count - 1 {
@@ -29,8 +34,8 @@ extension NetworkManager: LocationCoordinateProtocol  {
             
             do {
                 let eta = try await self.calculateETABetweenTwoAddresses(addressOne: addressOne.address ?? "", addressTwo: addressTwo.address ?? "")
-                let conversToTime = Utils.addSecondsToTime(nowTime: results.last?.ETA ?? "9:00", seconds: eta ?? 0)
-                let addressDistance = AddressDistance(address: addressTwo.address, ETA: conversToTime, isStart: false)
+                let conversToTime = Utils.addSecondsToTime(nowTime: results.last?.arriveETA ?? "9:00", seconds: eta.secondsDistance ?? 0)
+                let addressDistance = AddressDistance(address: addressTwo.address, distanceETA: "\(eta.secondsDistance ?? 0)", arriveETA: conversToTime, isStart: false, coordinate: eta.coord2)
                 results.append(addressDistance)
             } catch {
                 throw error
@@ -40,13 +45,13 @@ extension NetworkManager: LocationCoordinateProtocol  {
         return results
     }
     
-    func calculateETABetweenTwoAddresses(addressOne: String, addressTwo: String) async throws -> Int? {
+    func calculateETABetweenTwoAddresses(addressOne: String, addressTwo: String) async throws -> (secondsDistance: Int?, coord1: CLLocationCoordinate2D, coord2: CLLocationCoordinate2D) {
         do {
             let coord1 = try await self.getLocationSingleAdress(address: addressOne)
             let coord2 = try await self.getLocationSingleAdress(address: addressTwo)
             let distance = self.calculateAerialDistance(coord1: coord1, coord2: coord2)
             let eta = Int((distance) / 10.0)
-            return eta
+            return (eta, coord1, coord2)
         } catch {
             throw error
         }
