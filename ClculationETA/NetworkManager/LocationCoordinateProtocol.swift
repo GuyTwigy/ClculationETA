@@ -17,37 +17,27 @@ protocol LocationCoordinateProtocol {
 
 extension NetworkManager: LocationCoordinateProtocol  {
     func calculateETABetweenAdressesArray(addressesArr: [AddressDistance]) async throws -> [AddressDistance] {
-        try await withThrowingTaskGroup(of: AddressDistance.self) { group in
-            var results: [AddressDistance] = []
+        var results: [AddressDistance] = []
         
-            if let firstAddress = addressesArr.first {
-                results.append(AddressDistance(address: firstAddress.address, ETA: nil, isStart: true))
-            }
-            
-            for i in 0..<addressesArr.count - 1 {
-                let addressOne = addressesArr[i]
-                let addressTwo = addressesArr[i + 1]
-                
-                group.addTask { [weak self] in
-                    guard let self else {
-                        throw URLError(.badServerResponse)
-                    }
-                    
-                    do {
-                        let eta = try await self.calculateETABetweenTwoAddresses(addressOne: addressOne.address ?? "", addressTwo: addressTwo.address ?? "")
-                        return AddressDistance(address: addressTwo.address, ETA: eta, isStart: false)
-                    } catch {
-                        throw error
-                    }
-                }
-            }
-            
-            for try await result in group {
-                results.append(result)
-            }
-            
-            return results
+        if let firstAddress = addressesArr.first {
+            results.append(AddressDistance(address: firstAddress.address, ETA: "9:00", isStart: true))
         }
+        
+        for i in 0..<addressesArr.count - 1 {
+            let addressOne = addressesArr[i]
+            let addressTwo = addressesArr[i + 1]
+            
+            do {
+                let eta = try await self.calculateETABetweenTwoAddresses(addressOne: addressOne.address ?? "", addressTwo: addressTwo.address ?? "")
+                let conversToTime = Utils.addSecondsToTime(nowTime: results.last?.ETA ?? "9:00", seconds: eta ?? 0)
+                let addressDistance = AddressDistance(address: addressTwo.address, ETA: conversToTime, isStart: false)
+                results.append(addressDistance)
+            } catch {
+                throw error
+            }
+        }
+        
+        return results
     }
     
     func calculateETABetweenTwoAddresses(addressOne: String, addressTwo: String) async throws -> Int? {
@@ -66,7 +56,7 @@ extension NetworkManager: LocationCoordinateProtocol  {
         var components = URLComponents(string: "\(baseUrl)\(AppConstants.EndPoints.maps.description)\(AppConstants.EndPoints.api.description)\(AppConstants.EndPoints.geocode.description)\(AppConstants.EndPoints.json.description)") ?? URLComponents()
         
         components.queryItems = [
-            URLQueryItem(name: "address", value: "\(address.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")"),
+            URLQueryItem(name: "address", value: "\(address.capitalized)"),
             URLQueryItem(name: "key", value: googleMapsApiKey)
         ]
         

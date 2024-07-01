@@ -23,7 +23,9 @@ class AddLocationCell: UITableViewCell {
     }
     
     @IBAction func addTapped(_ sender: Any) {
-        delegate?.addTapped(address: locationTextField.text ?? "")
+        if locationTextField.text != nil && !(locationTextField.text?.isEmpty ?? false) {
+            delegate?.addTapped(address: locationTextField.text ?? "")
+        }
     }
     
     @IBAction func removeTapped(_ sender: Any) {

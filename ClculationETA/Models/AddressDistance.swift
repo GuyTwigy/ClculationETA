@@ -9,6 +9,6 @@ import Foundation
 
 struct AddressDistance {
     let address: String?
-    let ETA: Int?
+    let ETA: String?
     let isStart: Bool?
 }

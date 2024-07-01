@@ -33,6 +33,7 @@
 		9DA138A22C31F8A500EAC583 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA138A12C31F8A500EAC583 /* URLSessionProtocol.swift */; };
 		9DA138A42C31F99100EAC583 /* LocationCoordinateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA138A32C31F99100EAC583 /* LocationCoordinateProtocol.swift */; };
 		9DA138A62C32987D00EAC583 /* AddressDistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA138A52C32987D00EAC583 /* AddressDistance.swift */; };
+		9DA138A92C32C8E900EAC583 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA138A82C32C8E900EAC583 /* Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		9DA138A12C31F8A500EAC583 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
 		9DA138A32C31F99100EAC583 /* LocationCoordinateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCoordinateProtocol.swift; sourceTree = "<group>"; };
 		9DA138A52C32987D00EAC583 /* AddressDistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressDistance.swift; sourceTree = "<group>"; };
+		9DA138A82C32C8E900EAC583 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 				9DA138562C31CC2000EAC583 /* Assets.xcassets */,
 				9DA138582C31CC2000EAC583 /* LaunchScreen.storyboard */,
 				9DA1387D2C31D76C00EAC583 /* Extensions */,
+				9DA138A72C32C8D700EAC583 /* Utils */,
 				9DA138992C31F55700EAC583 /* AppConstants */,
 				9DA1389C2C31F74B00EAC583 /* NetworkManager */,
 				9DA1388F2C31E02700EAC583 /* Models */,
@@ -240,6 +243,14 @@
 				9DA138A32C31F99100EAC583 /* LocationCoordinateProtocol.swift */,
 			);
 			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		9DA138A72C32C8D700EAC583 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				9DA138A82C32C8E900EAC583 /* Utils.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -387,6 +398,7 @@
 				9DA138A62C32987D00EAC583 /* AddressDistance.swift in Sources */,
 				9DA138882C31DD9100EAC583 /* LocationCell.swift in Sources */,
 				9DA1389B2C31F57300EAC583 /* AppConstants.swift in Sources */,
+				9DA138A92C32C8E900EAC583 /* Utils.swift in Sources */,
 				9DA138972C31E6F900EAC583 /* AddLocationCell.swift in Sources */,
 				9DA138A02C31F7BC00EAC583 /* CLLocationDegreesExtension.swift in Sources */,
 				9DA138A42C31F99100EAC583 /* LocationCoordinateProtocol.swift in Sources */,
