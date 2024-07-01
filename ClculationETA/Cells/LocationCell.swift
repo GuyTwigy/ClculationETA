@@ -24,14 +24,7 @@ class LocationCell: UITableViewCell {
     }
     
     func setupCellContent(addressDistanc: AddressDistance) {
-        if addressDistanc.isStart ?? false {
-            ETALbl.isHidden =  true
-            addressLbl.text = "Start - 📍 \(addressDistanc.address ?? "")"
-        } else {
-            ETALbl.isHidden = false
-            ETALbl.text = "\(addressDistanc.ETA ?? 0)"
-            addressLbl.text = "📍 \(addressDistanc.address ?? "")"
-        }
-        
+        addressLbl.text = addressDistanc.isStart ?? false ? "Start - 📍 \(addressDistanc.address ?? "")" : "📍 \(addressDistanc.address ?? "")"
+        ETALbl.text = addressDistanc.isStart ?? false ? "\(addressDistanc.ETA ?? "9:00")" : "\(addressDistanc.ETA ?? "9:00") ETA"
     }
 }
