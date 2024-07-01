@@ -6,9 +6,12 @@
 //
 
 import Foundation
+import CoreLocation
 
 struct AddressDistance {
     let address: String?
-    let ETA: String?
+    let distanceETA: String?
+    let arriveETA: String?
     let isStart: Bool?
+    let coordinate: CLLocationCoordinate2D?
 }

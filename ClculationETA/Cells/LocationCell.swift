@@ -25,6 +25,6 @@ class LocationCell: UITableViewCell {
     
     func setupCellContent(addressDistanc: AddressDistance) {
         addressLbl.text = addressDistanc.isStart ?? false ? "Start - 📍 \(addressDistanc.address ?? "")" : "📍 \(addressDistanc.address ?? "")"
-        ETALbl.text = addressDistanc.isStart ?? false ? "\(addressDistanc.ETA ?? "9:00")" : "\(addressDistanc.ETA ?? "9:00") ETA"
+        ETALbl.text = addressDistanc.isStart ?? false ? "\(addressDistanc.arriveETA ?? "9:00")" : "\(addressDistanc.arriveETA ?? "9:00") ETA"
     }
 }
