@@ -95,13 +95,13 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8wd-RR-aFj">
-                                        <rect key="frame" x="42" y="20" width="41.333333333333343" height="20.333333333333329"/>
+                                        <rect key="frame" x="42" y="20" width="372" height="20.333333333333329"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X3w-3S-m2j">
-                                        <rect key="frame" x="42" y="160.66666666666666" width="41.333333333333343" height="20.333333333333343"/>
+                                        <rect key="frame" x="42" y="160.66666666666666" width="372" height="20.333333333333343"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -177,6 +177,7 @@
                                     <constraint firstItem="luJ-ST-IxN" firstAttribute="leading" secondItem="zcj-i9-ORU" secondAttribute="trailing" constant="30" id="ZxM-5F-F3W"/>
                                     <constraint firstItem="5mu-Ib-ASK" firstAttribute="leading" secondItem="9ou-BV-jM3" secondAttribute="trailing" constant="70" id="cHY-3Y-u2Z"/>
                                     <constraint firstItem="CjN-A6-BdZ" firstAttribute="height" secondItem="QPS-j3-ZHC" secondAttribute="height" multiplier="0.15" id="cXI-7k-ox2"/>
+                                    <constraint firstItem="Atf-ah-GJH" firstAttribute="leading" secondItem="8wd-RR-aFj" secondAttribute="trailing" constant="20" id="cZP-bN-uIb"/>
                                     <constraint firstItem="zcj-i9-ORU" firstAttribute="top" secondItem="5mu-Ib-ASK" secondAttribute="bottom" constant="10" id="dY7-Pb-M3d"/>
                                     <constraint firstItem="omN-fU-ect" firstAttribute="leading" secondItem="QPS-j3-ZHC" secondAttribute="leading" constant="20" id="eNh-II-tIH"/>
                                     <constraint firstItem="CjN-A6-BdZ" firstAttribute="leading" secondItem="QPS-j3-ZHC" secondAttribute="leading" constant="20" id="fUr-q0-SDF"/>
@@ -197,6 +198,7 @@
                                     <constraint firstItem="yMt-cl-8IB" firstAttribute="height" secondItem="QPS-j3-ZHC" secondAttribute="height" multiplier="0.15" id="rB0-n0-Sin"/>
                                     <constraint firstItem="omN-fU-ect" firstAttribute="top" secondItem="wxQ-GU-VF4" secondAttribute="bottom" constant="5" id="wNn-2z-qOg"/>
                                     <constraint firstAttribute="height" constant="201" id="xV3-Ho-C8f"/>
+                                    <constraint firstItem="RYH-YP-YyF" firstAttribute="leading" secondItem="X3w-3S-m2j" secondAttribute="trailing" constant="20" id="xfZ-gF-Gnb"/>
                                     <constraint firstItem="XYc-1C-qsd" firstAttribute="leading" secondItem="2sa-FT-44M" secondAttribute="trailing" constant="40" id="zSt-Eg-Phe"/>
                                 </constraints>
                             </view>
