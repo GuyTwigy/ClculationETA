@@ -48,6 +48,9 @@
                                         <real key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="resetTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Evm-Bz-t9F"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address List Is Empty" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s6L-tH-5cg">
                                 <rect key="frame" x="114.66666666666669" y="311" width="164" height="21"/>
@@ -62,7 +65,7 @@
                                 <rect key="frame" x="0.0" y="116" width="393" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eSY-gV-NUM">
-                                        <rect key="frame" x="20" y="16" width="30" height="28.666666666666664"/>
+                                        <rect key="frame" x="20" y="15.999999999999998" width="30" height="28.666666666666664"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="Wn1-Le-Bqv"/>
                                             <constraint firstAttribute="height" constant="30" id="kzt-QH-3pS"/>

@@ -69,6 +69,18 @@ class MainVC: UIViewController {
             addTapped(address: locationTextField.text ?? "")
         }
     }
+    @IBAction func resetTapped(_ sender: Any) {
+        showConfirmationAlert(title: "Are You Sure", message: "This will erase your addresses list", okAction:  { [weak self] in
+            guard let self else {
+                return
+            }
+            
+            loader.startAnimating()
+            addressesDistance.removeAll()
+            tblLocations.reloadData()
+            loader.stopAnimating()
+        })
+    }
 }
 
 extension MainVC: UITableViewDataSource, UITableViewDelegate, UITableViewDragDelegate, UITableViewDropDelegate {
