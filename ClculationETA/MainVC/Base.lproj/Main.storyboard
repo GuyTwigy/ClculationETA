@@ -22,21 +22,22 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qed-qC-63q" customClass="CustomButton" customModule="ClculationETA" customModuleProvider="target">
-                                <rect key="frame" x="20" y="71" width="120" height="40"/>
+                                <rect key="frame" x="20" y="71" width="40" height="40"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="BCd-mh-Tnn"/>
-                                    <constraint firstAttribute="width" constant="120" id="cOZ-2W-FDL"/>
+                                    <constraint firstAttribute="width" constant="40" id="cOZ-2W-FDL"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pVl-FV-7QI">
-                                <rect key="frame" x="274.33333333333331" y="71" width="98.666666666666686" height="40"/>
+                                <rect key="frame" x="333" y="71" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="pac-nm-UvS"/>
+                                    <constraint firstAttribute="width" constant="40" id="umo-Rb-xr6"/>
                                 </constraints>
                                 <color key="tintColor" systemColor="systemRedColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Reset List"/>
+                                <buttonConfiguration key="configuration" style="plain" image="trash.fill" catalog="system"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                         <real key="value" value="1"/>
@@ -65,7 +66,7 @@
                                 <rect key="frame" x="0.0" y="116" width="393" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eSY-gV-NUM">
-                                        <rect key="frame" x="20" y="15.999999999999998" width="30" height="28.666666666666664"/>
+                                        <rect key="frame" x="20" y="16" width="30" height="28.666666666666664"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="Wn1-Le-Bqv"/>
                                             <constraint firstAttribute="height" constant="30" id="kzt-QH-3pS"/>
@@ -104,27 +105,16 @@
                                             <action selector="addTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SDn-dK-IqP"/>
                                         </connections>
                                     </button>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="brO-DJ-VnK">
-                                        <rect key="frame" x="44" y="60" width="305" height="1"/>
-                                        <color key="backgroundColor" systemColor="systemGray3Color"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="1" id="oKw-Kx-75v"/>
-                                        </constraints>
-                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="kwQ-qx-DqG" firstAttribute="top" secondItem="ndK-i7-cgR" secondAttribute="top" constant="5" id="1dU-x4-74Y"/>
                                     <constraint firstItem="kwQ-qx-DqG" firstAttribute="centerY" secondItem="ndK-i7-cgR" secondAttribute="centerY" id="59O-a3-lb2"/>
-                                    <constraint firstItem="brO-DJ-VnK" firstAttribute="leading" secondItem="ndK-i7-cgR" secondAttribute="leadingMargin" constant="36" id="7ga-X7-Odw"/>
                                     <constraint firstAttribute="trailing" secondItem="bDp-hw-vEZ" secondAttribute="trailing" constant="20" id="A2U-QH-lNX"/>
                                     <constraint firstItem="bDp-hw-vEZ" firstAttribute="leading" secondItem="kwQ-qx-DqG" secondAttribute="trailing" constant="10" id="GgX-6B-LJQ"/>
                                     <constraint firstItem="eSY-gV-NUM" firstAttribute="leading" secondItem="ndK-i7-cgR" secondAttribute="leading" constant="20" id="IdX-3k-hhE"/>
                                     <constraint firstItem="eSY-gV-NUM" firstAttribute="centerY" secondItem="ndK-i7-cgR" secondAttribute="centerY" id="N08-gw-fff"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="brO-DJ-VnK" secondAttribute="trailing" constant="36" id="WoY-nL-8BL"/>
                                     <constraint firstItem="kwQ-qx-DqG" firstAttribute="leading" secondItem="eSY-gV-NUM" secondAttribute="trailing" constant="10" id="hzn-aj-5IB"/>
-                                    <constraint firstItem="brO-DJ-VnK" firstAttribute="top" secondItem="kwQ-qx-DqG" secondAttribute="bottom" constant="5" id="iTm-aW-yOQ"/>
-                                    <constraint firstItem="brO-DJ-VnK" firstAttribute="top" secondItem="kwQ-qx-DqG" secondAttribute="bottom" constant="5" id="jmx-43-daS"/>
                                     <constraint firstAttribute="height" constant="60" id="kZL-XT-Ayx"/>
                                     <constraint firstItem="bDp-hw-vEZ" firstAttribute="centerY" secondItem="ndK-i7-cgR" secondAttribute="centerY" id="ob5-Y0-ilw"/>
                                 </constraints>
@@ -169,11 +159,9 @@
     </scenes>
     <resources>
         <image name="minus.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="trash.fill" catalog="system" width="117" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray3Color">
-            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
