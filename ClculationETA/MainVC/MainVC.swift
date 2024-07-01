@@ -39,6 +39,9 @@ class MainVC: UIViewController {
     func setupTableView() {
         tblLocations.delegate = self
         tblLocations.dataSource = self
+//        tblLocations.dragDelegate = self
+//        tblLocations.dropDelegate = self
+//        tblLocations.dragInteractionEnabled = true
         tblLocations.register(UINib(nibName: "LocationCell", bundle: nil), forCellReuseIdentifier: "LocationCell")
         tblLocations.register(UINib(nibName: "AddLocationCell", bundle: nil), forCellReuseIdentifier: "AddLocationCell")
         tblLocations.rowHeight = UITableView.automaticDimension
@@ -89,6 +92,21 @@ extension MainVC: UITableViewDataSource, UITableViewDelegate {
             }
             addressesDistance[indexPath.row].infoOpen = !addressesDistance[indexPath.row].infoOpen
             tableView.reloadData()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            loader.startAnimating()
+            addressesDistance.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            addressesDistance = vm?.positionChanged(addressesArr: addressesDistance) ?? []
+            tableView.reloadData()
+            loader.stopAnimating()
         }
     }
 }
