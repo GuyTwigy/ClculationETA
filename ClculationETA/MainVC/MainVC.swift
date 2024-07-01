@@ -39,6 +39,8 @@ class MainVC: UIViewController {
         tblLocations.dataSource = self
         tblLocations.register(UINib(nibName: "LocationCell", bundle: nil), forCellReuseIdentifier: "LocationCell")
         tblLocations.register(UINib(nibName: "AddLocationCell", bundle: nil), forCellReuseIdentifier: "AddLocationCell")
+        tblLocations.rowHeight = UITableView.automaticDimension
+        tblLocations.estimatedRowHeight = 200
     }
 
 }
@@ -67,6 +69,18 @@ extension MainVC: UITableViewDataSource, UITableViewDelegate {
         cell.selectionStyle = .none
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if !addressesDistance.isEmpty {
+            for (index, address) in addressesDistance.enumerated() {
+                if address.infoOpen == true {
+                    addressesDistance[index].infoOpen = false
+                }
+            }
+            addressesDistance[addCellOpen ? indexPath.row - 1 : indexPath.row].infoOpen = !addressesDistance[addCellOpen ? indexPath.row - 1 : indexPath.row].infoOpen
+            tableView.reloadData()
+        }
+    }
 }
 
 extension MainVC: CustomButtonDelegate {
@@ -84,7 +98,7 @@ extension MainVC: AddLocationCellDelegate {
     
     func addTapped(address: String) {
         loader.startAnimating()
-        addressesDistance.append(AddressDistance(address: address, ETA: nil, isStart: nil))
+        addressesDistance.append(AddressDistance(address: address, distanceETA: nil, arriveETA: nil, isStart: nil, coordinate: nil))
         Task {
             try await vm?.getDistance(addressesArr: addressesDistance)
         }

@@ -14,4 +14,5 @@ struct AddressDistance {
     let arriveETA: String?
     let isStart: Bool?
     let coordinate: CLLocationCoordinate2D?
+    var infoOpen: Bool = false
 }
