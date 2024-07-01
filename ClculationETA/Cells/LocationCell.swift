@@ -27,14 +27,18 @@ class LocationCell: UITableViewCell {
         super.prepareForReuse()
         addressLbl.text = ""
         ETALbl.text = ""
+        infoView.isHidden = true
     }
     
-    func setupCellContent(addressDistanc: AddressDistance) {
-        infoView.isHidden = !addressDistanc.infoOpen
-        if addressDistanc.isStart ?? false {
-            infoView.isHidden = true
-        }
+    func setupCellContent(addressDistanc: AddressDistance, formerAdress: AddressDistance) {
+        infoView.isHidden = !addressDistanc.infoOpen || addressDistanc.isStart ?? false
         addressLbl.text = addressDistanc.isStart ?? false ? "Start - 📍 \(addressDistanc.address ?? "")" : "📍 \(addressDistanc.address ?? "")"
         ETALbl.text = addressDistanc.isStart ?? false ? "\(addressDistanc.arriveETA ?? "9:00")" : "\(addressDistanc.arriveETA ?? "9:00") ETA"
+        
+        fromLbl.text = "From \(formerAdress.address ?? "")"
+        toLbl.text = "To \(addressDistanc.address ?? "")"
+        startTime.text = "Start at \(formerAdress.arriveETA ?? "9:00")"
+        endTime.text = "ETA at \(addressDistanc.arriveETA ?? "9:00")"
+        timeDistanceLbl.text = Utils.formatTime(seconds: Int(addressDistanc.distanceETA ?? "0") ?? 0)
     }
 }

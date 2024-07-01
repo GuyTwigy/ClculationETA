@@ -47,6 +47,7 @@ class MainVC: UIViewController {
     
     func addTapped(address: String) {
         loader.startAnimating()
+        locationTextField.text = ""
         addressesDistance.append(AddressDistance(address: address, distanceETA: nil, arriveETA: nil, isStart: nil, coordinate: nil))
         Task {
             try await vm?.getDistance(addressesArr: addressesDistance)
@@ -73,7 +74,8 @@ extension MainVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LocationCell", for: indexPath) as! LocationCell
-        cell.setupCellContent(addressDistanc: addressesDistance[indexPath.row])
+        var formerIndex = (indexPath.row - 1) < 0 ? 0 : indexPath.row - 1
+        cell.setupCellContent(addressDistanc: addressesDistance[indexPath.row], formerAdress: addressesDistance[formerIndex])
         cell.selectionStyle = .none
         return cell
     }
