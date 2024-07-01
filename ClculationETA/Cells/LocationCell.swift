@@ -30,7 +30,10 @@ class LocationCell: UITableViewCell {
     }
     
     func setupCellContent(addressDistanc: AddressDistance) {
-        infoView.isHidden = !addressDistanc.infoOpen || addressDistanc.isStart ?? false
+        infoView.isHidden = !addressDistanc.infoOpen
+        if addressDistanc.isStart ?? false {
+            infoView.isHidden = true
+        }
         addressLbl.text = addressDistanc.isStart ?? false ? "Start - 📍 \(addressDistanc.address ?? "")" : "📍 \(addressDistanc.address ?? "")"
         ETALbl.text = addressDistanc.isStart ?? false ? "\(addressDistanc.arriveETA ?? "9:00")" : "\(addressDistanc.arriveETA ?? "9:00") ETA"
     }

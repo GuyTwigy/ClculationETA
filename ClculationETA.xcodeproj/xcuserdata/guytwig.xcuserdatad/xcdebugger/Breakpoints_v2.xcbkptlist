@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E3AAD68D-8E1F-4D23-950D-5CF3C680AB72"
+            uuid = "D0A68EAA-21DF-441A-8AC3-77ABCEA296A1"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ClculationETA/NetworkManager/LocationCoordinateProtocol.swift"
+            filePath = "ClculationETA/Cells/LocationCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "calculateETABetweenAdressesArray(addressesArr:)"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "setupCellContent(addressDistanc:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

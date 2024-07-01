@@ -12,13 +12,8 @@ class MainVC: UIViewController {
     
     var vm: MainVM?
     var addressesDistance: [AddressDistance] = []
-    var addCellOpen: Bool = false
     
-    @IBOutlet weak var loader: UIActivityIndicatorView! {
-        didSet {
-//            loader.startAnimating()
-        }
-    }
+    @IBOutlet weak var loader: UIActivityIndicatorView!
     @IBOutlet weak var addBtn: CustomButton! {
         didSet {
             addBtn.delegate = self
@@ -26,6 +21,13 @@ class MainVC: UIViewController {
     }
     @IBOutlet weak var emptyListIndicationLbl: UILabel!
     @IBOutlet weak var tblLocations: UITableView!
+    @IBOutlet weak var locationTextField: UITextField!
+    @IBOutlet weak var addLocationViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var addLocationView: UIView! {
+        didSet {
+            addLocationView.isHidden = true
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,59 +44,6 @@ class MainVC: UIViewController {
         tblLocations.rowHeight = UITableView.automaticDimension
         tblLocations.estimatedRowHeight = 200
     }
-
-}
-
-extension MainVC: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        addCellOpen ? addressesDistance.count + 1 : addressesDistance.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = UITableViewCell()
-        if addCellOpen && indexPath.row == 0 {
-            let addCell = tableView.dequeueReusableCell(withIdentifier: "AddLocationCell", for: indexPath) as! AddLocationCell
-            addCell.locationTextField.text = ""
-            addCell.delegate = self
-            cell = addCell
-        } else if addCellOpen {
-            let locationCell = tableView.dequeueReusableCell(withIdentifier: "LocationCell", for: indexPath) as! LocationCell
-            locationCell.setupCellContent(addressDistanc: addressesDistance[indexPath.row - 1])
-            cell = locationCell
-        } else {
-            let locationCell = tableView.dequeueReusableCell(withIdentifier: "LocationCell", for: indexPath) as! LocationCell
-            locationCell.setupCellContent(addressDistanc: addressesDistance[indexPath.row])
-            cell = locationCell
-        }
-        cell.selectionStyle = .none
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if !addressesDistance.isEmpty {
-            for (index, address) in addressesDistance.enumerated() {
-                if address.infoOpen == true {
-                    addressesDistance[index].infoOpen = false
-                }
-            }
-            addressesDistance[addCellOpen ? indexPath.row - 1 : indexPath.row].infoOpen = !addressesDistance[addCellOpen ? indexPath.row - 1 : indexPath.row].infoOpen
-            tableView.reloadData()
-        }
-    }
-}
-
-extension MainVC: CustomButtonDelegate {
-    func addLocationTapped() {
-        addCellOpen = true
-        tblLocations.reloadData()
-    }
-}
-
-extension MainVC: AddLocationCellDelegate {
-    func removeCellTapped() {
-        addCellOpen = false
-        tblLocations.reloadData()
-    }
     
     func addTapped(address: String) {
         loader.startAnimating()
@@ -102,6 +51,50 @@ extension MainVC: AddLocationCellDelegate {
         Task {
             try await vm?.getDistance(addressesArr: addressesDistance)
         }
+    }
+    
+    @IBAction func removeTopCellTApped(_ sender: Any) {
+        addLocationViewHeightConstraint.constant = 0
+        addLocationView.isHidden = true
+        
+    }
+    
+    @IBAction func addTapped(_ sender: Any) {
+        if locationTextField.text != nil && !(locationTextField.text?.isEmpty ?? false) {
+            addTapped(address: locationTextField.text ?? "")
+        }
+    }
+}
+
+extension MainVC: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        addressesDistance.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "LocationCell", for: indexPath) as! LocationCell
+        cell.setupCellContent(addressDistanc: addressesDistance[indexPath.row])
+        cell.selectionStyle = .none
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if !addressesDistance.isEmpty {
+            for index in addressesDistance.indices {
+                if addressesDistance[index].coordinate?.latitude != addressesDistance[indexPath.row].coordinate?.latitude {
+                    addressesDistance[index].infoOpen = false
+                }
+            }
+            addressesDistance[indexPath.row].infoOpen = !addressesDistance[indexPath.row].infoOpen
+            tableView.reloadData()
+        }
+    }
+}
+
+extension MainVC: CustomButtonDelegate {
+    func addLocationTapped() {
+        addLocationViewHeightConstraint.constant = 60
+        addLocationView.isHidden = false
     }
 }
 
