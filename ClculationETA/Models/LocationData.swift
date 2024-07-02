@@ -7,19 +7,36 @@
 
 import Foundation
 
-class LocationResponse: Decodable {
+class LocationResponse: Codable {
     let results: [LocationData]?
+    
+    init(results: [LocationData]?) {
+        self.results = results
+    }
 }
 
-class LocationData: Decodable {
+class LocationData: Codable {
     let geometry: GeometryData?
+    
+    init(geometry: GeometryData?) {
+        self.geometry = geometry
+    }
 }
 
-class GeometryData: Decodable {
+class GeometryData: Codable {
     let location: LatAndLng?
+    
+    init(location: LatAndLng?) {
+        self.location = location
+    }
 }
 
-class LatAndLng: Decodable {
+class LatAndLng: Codable {
     let lat: Double?
     let lng: Double?
+    
+    init(lat: Double?, lng: Double?) {
+        self.lat = lat
+        self.lng = lng
+    }
 }
