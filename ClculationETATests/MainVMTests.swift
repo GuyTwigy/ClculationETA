@@ -23,7 +23,6 @@ final class MainVMTests: XCTestCase {
     
     func test_NetworkManager_getDistanceSuccess() async throws {
         // Given
-        let locationData = LocationResponse(results: [LocationData(geometry: GeometryData(location: LatAndLng(lat: 32.084041, lng: 34.887762)))])
         let addressesArray = [AddressDistance(address: "Petah Tikva", distanceETA: nil, arriveETA: nil, isStart: true),
                               AddressDistance(address: "Tel Aviv", distanceETA: nil, arriveETA: nil, isStart: false),
                               AddressDistance(address: "Jerusalem", distanceETA: nil, arriveETA: nil, isStart: false),
@@ -56,7 +55,6 @@ final class MainVMTests: XCTestCase {
     
     func test_NetworkManager_positionChangedSuccess() async throws {
         // Given
-        let locationData = LocationResponse(results: [LocationData(geometry: GeometryData(location: LatAndLng(lat: 32.084041, lng: 34.887762)))])
         let addressesArray = [AddressDistance(address: "Petah Tikva", distanceETA: nil, arriveETA: nil, isStart: true),
                               AddressDistance(address: "Tel Aviv", distanceETA: nil, arriveETA: nil, isStart: false),
                               AddressDistance(address: "Jerusalem", distanceETA: nil, arriveETA: nil, isStart: false),
@@ -81,7 +79,6 @@ final class MainVMTests: XCTestCase {
     
     func test_NetworkManager_calculateETABetweenTwoAddressesSuccess() async throws {
         // Given
-        let locationData = LocationResponse(results: [LocationData(geometry: GeometryData(location: LatAndLng(lat: 32.084041, lng: 34.887762)))])
         let etaArrivedSecondes = 998
         let addressesArray = [AddressDistance(address: "Petah Tikva", distanceETA: nil, arriveETA: nil, isStart: true, coordinate: CLLocationCoordinate2D(latitude: 32.084041, longitude: 34.887762)),
                               AddressDistance(address: "Tel Aviv", distanceETA: nil, arriveETA: nil, isStart: false, coordinate: CLLocationCoordinate2D(latitude: 32.0852999, longitude: 34.78176759999999)),
@@ -117,7 +114,6 @@ final class MainVMTests: XCTestCase {
     
     func test_NetworkManager_calculateAerialDistanceSuccess() async throws {
         // Given
-        let locationData = LocationResponse(results: [LocationData(geometry: GeometryData(location: LatAndLng(lat: 32.084041, lng: 34.887762)))])
         let distance = 9986.868492787005
         let addressesArray = [AddressDistance(address: "Petah Tikva", distanceETA: nil, arriveETA: nil, isStart: true, coordinate: CLLocationCoordinate2D(latitude: 32.084041, longitude: 34.887762)),
                               AddressDistance(address: "Tel Aviv", distanceETA: nil, arriveETA: nil, isStart: false, coordinate: CLLocationCoordinate2D(latitude: 32.0852999, longitude: 34.78176759999999)),
