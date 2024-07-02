@@ -145,8 +145,9 @@ extension MainVC: UITableViewDataSource, UITableViewDelegate, UITableViewDragDel
         }
         
         if coordinator.proposal.operation == .move {
-            if shouldCancelDrop(from: coordinator.items.first?.sourceIndexPath, to: destinationIndexPath) {
-                showAlert(title: "Cannot move here while information is open", message: "Please close information and drag again")
+            let cancelDrop = shouldCancelDrop(sourceIndexPath: coordinator.items.first?.sourceIndexPath, destinationIndexPath: destinationIndexPath)
+            if cancelDrop.canDrop {
+                showAlert(title: cancelDrop.message, message: "Please close information and drag again")
                 return
             }
             
@@ -182,13 +183,26 @@ extension MainVC: UITableViewDataSource, UITableViewDelegate, UITableViewDragDel
         return UITableViewDropProposal(operation: .move, intent: .insertAtDestinationIndexPath)
     }
     
-    private func shouldCancelDrop(from sourceIndexPath: IndexPath?, to destinationIndexPath: IndexPath) -> Bool {
-        let nextIndex = destinationIndexPath.row + 1 >= addressesDistance.count ? destinationIndexPath.row : destinationIndexPath.row + 1
-        if addressesDistance[destinationIndexPath.row].infoOpen || addressesDistance[nextIndex].infoOpen {
-            return true
+    private func shouldCancelDrop(sourceIndexPath: IndexPath?, destinationIndexPath: IndexPath) -> (canDrop: Bool, message: String) {
+        guard let sourceIndexPath else {
+            return (false, "")
         }
         
-        return false
+        var nextIndex: Int?
+        if sourceIndexPath.row < destinationIndexPath.row {
+            nextIndex = destinationIndexPath.row + 1 >= addressesDistance.count ? destinationIndexPath.row - 1 : destinationIndexPath.row + 1
+            if let nextIndex, addressesDistance[nextIndex].infoOpen {
+                return (true, "Cannot move here while information is open")
+            }
+        } else if addressesDistance[destinationIndexPath.row].infoOpen {
+            return (true, "Cannot move here while information is open")
+        }
+        
+        if addressesDistance[sourceIndexPath.row].infoOpen {
+            return (true, "Cannot move adress while information is open")
+        }
+        
+        return (false, "")
     }
 }
 
