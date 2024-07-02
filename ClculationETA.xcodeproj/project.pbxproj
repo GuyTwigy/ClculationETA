@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D18E1222C34264300B7B430 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D18E1212C34264300B7B430 /* NetworkManagerTests.swift */; };
+		9D18E1242C342DE600B7B430 /* LocationCoordinateProtocolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D18E1232C342DE600B7B430 /* LocationCoordinateProtocolTests.swift */; };
+		9D18E1262C342F1500B7B430 /* MainVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D18E1252C342F1500B7B430 /* MainVMTests.swift */; };
 		9DA1384E2C31CC1F00EAC583 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA1384D2C31CC1F00EAC583 /* AppDelegate.swift */; };
 		9DA138502C31CC1F00EAC583 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA1384F2C31CC1F00EAC583 /* SceneDelegate.swift */; };
 		9DA138522C31CC1F00EAC583 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA138512C31CC1F00EAC583 /* MainVC.swift */; };
@@ -52,6 +55,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9D18E1212C34264300B7B430 /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
+		9D18E1232C342DE600B7B430 /* LocationCoordinateProtocolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCoordinateProtocolTests.swift; sourceTree = "<group>"; };
+		9D18E1252C342F1500B7B430 /* MainVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVMTests.swift; sourceTree = "<group>"; };
 		9DA1384A2C31CC1F00EAC583 /* ClculationETA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClculationETA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DA1384D2C31CC1F00EAC583 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9DA1384F2C31CC1F00EAC583 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -141,9 +147,7 @@
 				9DA1389C2C31F74B00EAC583 /* NetworkManager */,
 				9DA1388F2C31E02700EAC583 /* Models */,
 				9DA1388E2C31DF3E00EAC583 /* MainVC */,
-				9DA1388C2C31DF1500EAC583 /* Cells */,
 				9DA138922C31E48700EAC583 /* CustomNibView */,
-				9DA1388D2C31DF2900EAC583 /* CustomButton */,
 				9DA1385B2C31CC2000EAC583 /* Info.plist */,
 			);
 			path = ClculationETA;
@@ -153,6 +157,9 @@
 			isa = PBXGroup;
 			children = (
 				9DA138642C31CC2000EAC583 /* ClculationETATests.swift */,
+				9D18E1212C34264300B7B430 /* NetworkManagerTests.swift */,
+				9D18E1232C342DE600B7B430 /* LocationCoordinateProtocolTests.swift */,
+				9D18E1252C342F1500B7B430 /* MainVMTests.swift */,
 			);
 			path = ClculationETATests;
 			sourceTree = "<group>";
@@ -200,6 +207,7 @@
 				9DA1388A2C31DDBF00EAC583 /* MainVM.swift */,
 				9DA138512C31CC1F00EAC583 /* MainVC.swift */,
 				9DA138532C31CC1F00EAC583 /* Main.storyboard */,
+				9DA1388C2C31DF1500EAC583 /* Cells */,
 			);
 			path = MainVC;
 			sourceTree = "<group>";
@@ -217,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				9DA138932C31E4A500EAC583 /* CustomNibView.swift */,
+				9DA1388D2C31DF2900EAC583 /* CustomButton */,
 			);
 			path = CustomNibView;
 			sourceTree = "<group>";
@@ -404,7 +413,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D18E1242C342DE600B7B430 /* LocationCoordinateProtocolTests.swift in Sources */,
+				9D18E1222C34264300B7B430 /* NetworkManagerTests.swift in Sources */,
 				9DA138652C31CC2000EAC583 /* ClculationETATests.swift in Sources */,
+				9D18E1262C342F1500B7B430 /* MainVMTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

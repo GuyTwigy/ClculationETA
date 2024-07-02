@@ -16,6 +16,7 @@ class MainVM {
     
     weak var delegate: MainVMDelegate?
     private var networkManager = NetworkManager()
+    var adresses: [AddressDistance] = []
     
     func getDistance(addressesArr: [AddressDistance]) async throws {
         do {
@@ -27,7 +28,9 @@ class MainVM {
                 newArr.removeLast()
                 newArr.append(newElement ?? AddressDistance(address: nil, distanceETA: nil, arriveETA: nil, isStart: nil))
                 newArr = positionChanged(addressesArr: newArr)
-                delegate?.distanceBetweenAddresses(addressesDistance: newArr, error: nil)
+                adresses.removeAll()
+                adresses = newArr
+                delegate?.distanceBetweenAddresses(addressesDistance: adresses, error: nil)
             } else {
                 delegate?.distanceBetweenAddresses(addressesDistance: [], error: nil)
             }
