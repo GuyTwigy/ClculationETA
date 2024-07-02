@@ -32,6 +32,7 @@ class MainVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideKeyboardWhenTappedAround(cancelTouches: false)
         setupTableView()
         vm = MainVM()
         vm?.delegate = self
@@ -50,6 +51,7 @@ class MainVC: UIViewController {
     }
     
     func addTapped(address: String) {
+        locationTextField.resignFirstResponder()
         loader.startAnimating()
         locationTextField.text = ""
         addressesDistance.append(AddressDistance(address: address, distanceETA: nil, arriveETA: nil, isStart: nil, coordinate: nil))
@@ -164,6 +166,10 @@ extension MainVC: UITableViewDataSource, UITableViewDelegate, UITableViewDragDel
                 }, completion: nil)
                 coordinator.drop(item.dragItem, toRowAt: destinationIndexPath)
             }
+        }
+        
+        func scrollViewDidScroll(_ scrollView: UIScrollView) {
+            locationTextField.resignFirstResponder()
         }
     }
     
