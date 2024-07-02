@@ -82,6 +82,7 @@ class MainVC: UIViewController {
             addressesDistance.removeAll()
             tblLocations.reloadData()
             loader.stopAnimating()
+            emptyListIndicationLbl.isHidden = !addressesDistance.isEmpty
         })
     }
 }
@@ -124,6 +125,7 @@ extension MainVC: UITableViewDataSource, UITableViewDelegate, UITableViewDragDel
             addressesDistance = vm?.positionChanged(addressesArr: addressesDistance) ?? []
             tableView.reloadData()
             loader.stopAnimating()
+            emptyListIndicationLbl.isHidden = !addressesDistance.isEmpty
         }
     }
     
