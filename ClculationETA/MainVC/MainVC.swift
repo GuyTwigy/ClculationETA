@@ -32,11 +32,12 @@ class MainVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideKeyboardWhenTappedAround(cancelTouches: false)
         setupTableView()
         vm = MainVM()
         vm?.delegate = self
     }
-
+    
     func setupTableView() {
         tblLocations.delegate = self
         tblLocations.dataSource = self
@@ -50,6 +51,7 @@ class MainVC: UIViewController {
     }
     
     func addTapped(address: String) {
+        locationTextField.resignFirstResponder()
         loader.startAnimating()
         locationTextField.text = ""
         addressesDistance.append(AddressDistance(address: address, distanceETA: nil, arriveETA: nil, isStart: nil, coordinate: nil))
@@ -69,6 +71,7 @@ class MainVC: UIViewController {
             addTapped(address: locationTextField.text ?? "")
         }
     }
+    
     @IBAction func resetTapped(_ sender: Any) {
         showConfirmationAlert(title: "Are You Sure", message: "This will erase your addresses list", okAction:  { [weak self] in
             guard let self else {
@@ -97,7 +100,7 @@ extension MainVC: UITableViewDataSource, UITableViewDelegate, UITableViewDragDel
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if !addressesDistance.isEmpty {
+        if !addressesDistance.isEmpty && indexPath.row != 0 {
             for index in addressesDistance.indices {
                 if addressesDistance[index].coordinate?.latitude != addressesDistance[indexPath.row].coordinate?.latitude &&
                     addressesDistance[index].arriveETA != addressesDistance[indexPath.row].arriveETA {
@@ -112,7 +115,7 @@ extension MainVC: UITableViewDataSource, UITableViewDelegate, UITableViewDragDel
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             loader.startAnimating()
@@ -135,35 +138,39 @@ extension MainVC: UITableViewDataSource, UITableViewDelegate, UITableViewDragDel
         dragItem.localObject = addressDistance
         return [dragItem]
     }
-        
+    
     func tableView(_ tableView: UITableView, performDropWith coordinator: UITableViewDropCoordinator) {
-        guard let destinationIndexPath = coordinator.destinationIndexPath else { 
+        guard let destinationIndexPath = coordinator.destinationIndexPath else {
             return
         }
         
         if coordinator.proposal.operation == .move {
             if shouldCancelDrop(from: coordinator.items.first?.sourceIndexPath, to: destinationIndexPath) {
-                showAlert(title: "Something went wrong, Please try again later", message: "")
+                showAlert(title: "Cannot move here due to information is open", message: "Please close information and drag again")
                 return
             }
             
-            var destinationIndexPath = destinationIndexPath
+            var destinationIndexPathProperty = destinationIndexPath
             if let item = coordinator.items.first,
                let sourceIndexPath = item.sourceIndexPath {
-                if pinnedIndexPaths.contains(destinationIndexPath) {
-                    destinationIndexPath.row += 1
+                if pinnedIndexPaths.contains(destinationIndexPathProperty) {
+                    destinationIndexPathProperty.row += 1
                 }
                 loader.startAnimating()
                 tableView.performBatchUpdates({
                     addressesDistance.remove(at: sourceIndexPath.row)
-                    addressesDistance.insert(item.dragItem.localObject as! AddressDistance, at: destinationIndexPath.row)
-                    tableView.moveRow(at: sourceIndexPath, to: destinationIndexPath)
+                    addressesDistance.insert(item.dragItem.localObject as! AddressDistance, at: destinationIndexPathProperty.row)
+                    tableView.moveRow(at: sourceIndexPath, to: destinationIndexPathProperty)
                     addressesDistance = vm?.positionChanged(addressesArr: addressesDistance) ?? []
                     tableView.reloadData()
                     loader.stopAnimating()
                 }, completion: nil)
-                coordinator.drop(item.dragItem, toRowAt: destinationIndexPath)
+                coordinator.drop(item.dragItem, toRowAt: destinationIndexPathProperty)
             }
+        }
+        
+        func scrollViewDidScroll(_ scrollView: UIScrollView) {
+            locationTextField.resignFirstResponder()
         }
     }
     
@@ -176,10 +183,10 @@ extension MainVC: UITableViewDataSource, UITableViewDelegate, UITableViewDragDel
     }
     
     private func shouldCancelDrop(from sourceIndexPath: IndexPath?, to destinationIndexPath: IndexPath) -> Bool {
-        guard let sourceIndexPath = sourceIndexPath else { 
+        guard let _ = sourceIndexPath else {
             return false
         }
-
+        
         if addressesDistance[destinationIndexPath.row].infoOpen {
             return true
         }
@@ -188,34 +195,11 @@ extension MainVC: UITableViewDataSource, UITableViewDelegate, UITableViewDragDel
             return true
         }
         
-        if destinationIndexPath.row < addressesDistance.count - 1 && addressesDistance[destinationIndexPath.row + 1].infoOpen {
+        if destinationIndexPath.row < addressesDistance.count - 1 && addressesDistance[destinationIndexPath.row].infoOpen {
             return true
         }
         
         return false
-    }
-    
-    func pinCell(at indexPath: IndexPath) {
-        if addressesDistance[indexPath.row].infoOpen {
-            showAlert(title: "Something went wrong, Please try again later", message: "")
-            return
-        }
-        
-        if !pinnedIndexPaths.contains(indexPath) {
-            pinnedIndexPaths.append(indexPath)
-        }
-    }
-    
-    func unpinCell(at indexPath: IndexPath) {
-        if let index = pinnedIndexPaths.firstIndex(of: indexPath) {
-            pinnedIndexPaths.remove(at: index)
-        }
-    }
-    
-    private func showAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
     }
 }
 
