@@ -133,7 +133,7 @@ extension MainVC: UITableViewDataSource, UITableViewDelegate, UITableViewDragDel
     
     func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
         let addressDistance = addressesDistance[indexPath.row]
-        let itemProvider = NSItemProvider(object: "\(addressDistance.address ?? "") - \(addressDistance.arriveETA ?? "9:00") ETA" as NSString)
+        let itemProvider = NSItemProvider(object: "\(addressDistance.address ?? "")" as NSString)
         let dragItem = UIDragItem(itemProvider: itemProvider)
         dragItem.localObject = addressDistance
         return [dragItem]
@@ -146,7 +146,7 @@ extension MainVC: UITableViewDataSource, UITableViewDelegate, UITableViewDragDel
         
         if coordinator.proposal.operation == .move {
             if shouldCancelDrop(from: coordinator.items.first?.sourceIndexPath, to: destinationIndexPath) {
-                showAlert(title: "Cannot move here due to information is open", message: "Please close information and drag again")
+                showAlert(title: "Cannot move here while information is open", message: "Please close information and drag again")
                 return
             }
             
@@ -183,19 +183,8 @@ extension MainVC: UITableViewDataSource, UITableViewDelegate, UITableViewDragDel
     }
     
     private func shouldCancelDrop(from sourceIndexPath: IndexPath?, to destinationIndexPath: IndexPath) -> Bool {
-        guard let _ = sourceIndexPath else {
-            return false
-        }
-        
-        if addressesDistance[destinationIndexPath.row].infoOpen {
-            return true
-        }
-        
-        if destinationIndexPath.row > 0 && addressesDistance[destinationIndexPath.row - 1].infoOpen {
-            return true
-        }
-        
-        if destinationIndexPath.row < addressesDistance.count - 1 && addressesDistance[destinationIndexPath.row].infoOpen {
+        let nextIndex = destinationIndexPath.row + 1 >= addressesDistance.count ? destinationIndexPath.row : destinationIndexPath.row + 1
+        if addressesDistance[destinationIndexPath.row].infoOpen || addressesDistance[nextIndex].infoOpen {
             return true
         }
         
